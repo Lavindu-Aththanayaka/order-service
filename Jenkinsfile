@@ -12,7 +12,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                // Pulls the latest code from this service's own repository.
+               
                 git branch: 'main', url: 'https://github.com/Lavindu-Aththanayaka/order-service.git'
             }
         }
@@ -54,11 +54,7 @@ pipeline {
         stage('Record Previous Version') {
             steps {
                 script {
-                    // Captures the image ID currently running under this
-                    // container name (if any), so a failed deploy can be
-                    // rolled back to exactly what was running before -
-                    // this is the Docker-only equivalent of Kubernetes'
-                    // built-in rollout history.
+       
                     env.PREVIOUS_IMAGE = sh(
                         script: "docker inspect --format='{{.Image}}' ${SERVICE_NAME} 2>/dev/null || true",
                         returnStdout: true

@@ -76,7 +76,7 @@ pipeline {
                     docker rm -f ${SERVICE_NAME} 2>/dev/null || true
                     docker run -d --name ${SERVICE_NAME} \\
                         --network ${DOCKER_NET} \\
-                        -p 8082:8082 \\
+                        -p 9082:8082 \\
                         -e PORT=8082 \\
                         -e DB_HOST=order-db \\
                         -e DB_PORT=5432 \\

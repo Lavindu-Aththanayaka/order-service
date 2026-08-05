@@ -30,6 +30,7 @@ router.post("/", async (req, res) => {
 
   try {
     for (const item of items) {
+      // calls inventory-service
       await reserveStock(item.productId, item.quantity);
       reserved.push(item);
     }
